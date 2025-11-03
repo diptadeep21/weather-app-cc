@@ -1,0 +1,19 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.12
+    commands:
+      - echo "Installing dependencies for build (none required)"
+  build:
+    commands:
+      - echo "Build phase - packaging artifacts"
+  post_build:
+    commands:
+      - echo "Post build complete"
+artifacts:
+  files:
+    - '**/*'
+  name: weather-app-$(date +%Y-%m-%d-%H-%M-%S)
+  discard-paths: no
+

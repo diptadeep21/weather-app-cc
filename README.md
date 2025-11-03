@@ -1,30 +1,77 @@
-# Google Cloud DevOps Project: Deploying a Live Weather App on Cloud Run
+## Weather App (Flask + OpenWeather)
 
-Within this repository, you'll discover the essential source code and deployment files needed to orchestrate a live weather app on Cloud Run using Docker. 🌐🚀
+A simple Flask app that fetches current weather by city using the OpenWeather API. Includes a responsive Bootstrap UI, error handling, and Docker support.
 
-## Overview
+### Prerequisites
+- Python 3.8+
+- OpenWeather API key
 
-In this project, I'll walk you through building a Python weather app, containerizing it with Docker, and deploying it on Cloud Run. We'll leverage the OpenWeather API for live weather updates! 🐍🌦️ Moreover, the entire process will be automated with a CI/CD pipeline using Google Cloud Build! 🚀
+### Configuration
+Set the API key via environment variable (recommended):
 
-## Key Highlights
+```bash
+export OPENWEATHER_API_KEY="YOUR_API_KEY"
+```
 
-- 🐍 Developed the application using Python.
-- 🌐 Integrated the robust OpenWeather API for precise and current weather information.
-- 📦 Deployed the app on Google Cloud Run as a Container.
-- ☁️ Automated the entire CI/CD pipeline seamlessly with Google Cloud Build and GitHub.
+Alternatively, it will fall back to the value in `var.py` (`key`).
 
-## Tools and Technology
+### Run Locally
+```bash
+pip install -r requirements.txt
+export OPENWEATHER_API_KEY="YOUR_API_KEY"
+python app.py
+```
+App runs at `http://localhost:8080`.
 
-- **Docker:** 🐳
-- **Cloud Run:** ☁️
-- **GitHub:** 🐙
-- **Python:** 🐍
-- **Google Cloud Build:** 🛠️
-- **OpenWeather API:** 🌦️
+### Docker
+Build and run:
+```bash
+docker build -t weather-app .
+docker run -p 8080:8080 -e OPENWEATHER_API_KEY="YOUR_API_KEY" weather-app
+```
 
-## Resources
+### Notes
+- Uses HTTPS for API calls.
+- Displays descriptive errors returned by OpenWeather when applicable.
+- UI shows weather icon, temperature, humidity, wind, pressure, and feels-like.
 
-Feel free to dive in, explore the code, and follow along with the blog for a comprehensive understanding of deploying a live weather app on Google Cloud using DevOps practices!
+## AWS CI/CD: GitHub → CodePipeline → CodeDeploy → EC2
 
-Please refer below youtube video to deploy this weather-app on Google Cloud Run.
-https://youtu.be/jyuz0vfrFps
+This repo includes files to deploy automatically to an EC2 instance via AWS CodePipeline and CodeDeploy.
+
+### What’s included
+- `appspec.yml`: CodeDeploy configuration and lifecycle hooks
+- `buildspec.yml`: CodeBuild artifact packaging (used by CodePipeline)
+- `scripts/`:
+  - `install_dependencies.sh`: Creates venv and installs Python deps
+  - `configure_systemd.sh`: Installs `weather.service` for systemd
+  - `start_server.sh` / `stop_server.sh`: Manage the service
+  - `validate_service.sh`: Health check on `http://localhost:8080`
+
+### EC2 instance prerequisites
+- Amazon Linux 2 or Ubuntu with `systemd`
+- Instance profile with CodeDeploy permissions
+- CodeDeploy agent installed and running
+- Security group allows inbound TCP 8080 (or change the port in service file)
+
+### Configure environment variables
+Put secrets in `/etc/sysconfig/weather` on the EC2 host (created by script):
+```
+OPENWEATHER_API_KEY=YOUR_API_KEY
+```
+Then run:
+```
+sudo systemctl daemon-reload
+sudo systemctl restart weather.service
+```
+
+### CodePipeline (high-level)
+1. Create an S3 bucket for artifacts.
+2. Create a CodeBuild project using this repo; use `buildspec.yml`.
+3. Create a CodeDeploy application (Compute platform: EC2/On-Premises) and a Deployment group targeting the EC2 instance (using tags or Auto Scaling group).
+4. Create a CodePipeline:
+   - Source: GitHub repo
+   - Build: CodeBuild project above
+   - Deploy: CodeDeploy application/group above
+
+Deployments will copy the repo to `/home/ec2-user/weather-app`, create a venv, install deps, write a `systemd` unit, start the service with `gunicorn`, and validate via HTTP.
