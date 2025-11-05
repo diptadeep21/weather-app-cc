@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroCast</title>
+    <title>AgroCast – Results</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -181,49 +181,13 @@
             color: #ffffff;
         }
 
-        /* Hero Section */
-        .hero {
-            color: #ffffff;
-            text-align: center;
-            margin-top: 100px;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-weight: 700;
-            font-size: clamp(28px, 5vw, 42px);
-            letter-spacing: -0.5px;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .hero p {
-            opacity: 0.95;
-            font-size: clamp(14px, 2.5vw, 18px);
-            font-weight: 400;
-        }
-
         /* Container */
         .container {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 35px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            margin-top: 20px;
+            margin-top: 100px;
             margin-bottom: 40px;
             position: relative;
             z-index: 1;
@@ -242,100 +206,6 @@
             }
         }
 
-        /* Form Styles */
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .search-wrapper {
-            display: flex;
-            gap: 0;
-            margin-bottom: 20px;
-        }
-
-        .search-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 18px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            border-radius: 12px 0 0 12px;
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .form-control.form-lg {
-            height: 56px;
-            font-size: 16px;
-            border-radius: 0 12px 12px 0;
-            border: 2px solid #e5e7eb;
-            padding-left: 18px;
-            transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .form-control.form-lg:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
-            outline: none;
-        }
-
-        .search-wrapper:hover .search-icon {
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-            transform: scale(1.05);
-        }
-
-        /* Button Styles */
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            border-radius: 12px;
-            padding: 14px 32px;
-            font-weight: 600;
-            font-size: 16px;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
-        }
-
-        .btn-primary:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .btn-primary:active {
-            transform: translateY(0);
-        }
-
-        .spinner {
-            display: none !important;
-        }
-
-        .btn-primary .spinner {
-            margin-right: 8px;
-        }
-
         /* Weather Card */
         .weather-card {
             border: none;
@@ -343,7 +213,7 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             animation: slideInUp 0.6s ease-out;
-            margin-top: 30px;
+            margin-top: 20px;
         }
 
         @keyframes slideInUp {
@@ -451,6 +321,76 @@
             color: #1e293b;
         }
 
+        /* Agriculture Card */
+        .agri-card {
+            border: none;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: slideInUp 0.6s ease-out 0.3s both;
+            margin-top: 30px;
+            background: #ffffff;
+        }
+
+        .agri-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 24px;
+        }
+
+        .agri-header h4 {
+            font-weight: 600;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .agri-body {
+            padding: 24px;
+        }
+
+        .form-control {
+            border-radius: 12px;
+            border: 2px solid #e5e7eb;
+            padding: 12px 18px;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            outline: none;
+        }
+
+        .suggestion-item {
+            padding: 16px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .suggestion-item:hover {
+            background: #f1f5f9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .suggestion-label {
+            color: #64748b;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .suggestion-value {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #1e293b;
+        }
+
         /* Alert Styles */
         .alert {
             border-radius: 12px;
@@ -465,21 +405,27 @@
             75% { transform: translateX(10px); }
         }
 
-        /* Footer */
-        .footer-text {
-            text-align: center;
-            color: rgba(255,255,255,0.8);
+        /* Back Button */
+        .back-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 12px;
+            padding: 12px 24px;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            text-decoration: none;
+            display: inline-block;
             margin-top: 20px;
-            font-size: 0.875rem;
-            position: relative;
-            z-index: 1;
         }
 
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: #64748b;
-            font-size: 1.1rem;
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+            color: white;
+            text-decoration: none;
         }
 
         /* Responsive Design */
@@ -487,15 +433,7 @@
             .container {
                 padding: 24px;
                 margin: 20px 15px;
-            }
-
-            .hero {
                 margin-top: 80px;
-                margin-bottom: 20px;
-            }
-
-            .hero h1 {
-                font-size: 28px;
             }
 
             .weather-main {
@@ -517,7 +455,7 @@
             }
         }
 
-        /* Smooth transitions for all interactive elements */
+        /* Smooth transitions */
         * {
             transition: background-color 0.3s ease, color 0.3s ease;
         }
@@ -543,40 +481,21 @@
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 🌾 AgroCast
             </a>
         </div>
     </nav>
 
-    <section class="hero">
-        <h1>AgroCast — Smart Weather & Agriculture Assistant</h1>
-        <p>Accurate forecasts and crop guidance to power better farm decisions.</p>
-    </section>
-
     <div class="container">
         {% if error %}
-        <div class="alert alert-danger" role="alert">
-            <strong>⚠️</strong> {{ error }}
-        </div>
+            <div class="alert alert-danger" role="alert">
+                <strong>⚠️</strong> {{ error }}
+            </div>
         {% endif %}
 
-        <form method="post" onsubmit="showSpinner()">
-            <div class="search-wrapper">
-                <span class="search-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </span>
-                <input type="text" class="form-control form-lg" id="city" name="city" placeholder="Enter city name..." required autocomplete="off">
-            </div>
-            <button type="submit" class="btn btn-primary w-100">
-                <span class="spinner-border spinner-border-sm spinner" id="loadingSpinner" role="status" aria-hidden="true"></span>
-                Get Weather
-            </button>
-        </form>
-        
-{% if false %}
+        {% if weather_data %}
+            <!-- Weather Card -->
             <div class="card weather-card">
                 <div class="weather-header">
                     <h4>{{ weather_data['name'] }}, {{ weather_data['sys']['country'] }}</h4>
@@ -613,114 +532,65 @@
                 </div>
             </div>
 
-            <!-- Smart Agriculture Insights -->
-            <section style="margin-top: 24px;">
-                <h3 style="font-weight:700; margin-bottom:12px;">Smart Agriculture Insights</h3>
+            <!-- Agriculture Insights Card -->
+            <div class="card agri-card">
+                <div class="agri-header">
+                    <h4>🌾 Smart Agriculture Insights</h4>
+                </div>
+                <div class="agri-body">
+                    <div class="mb-4">
+                        <label for="crop" style="font-weight:600; font-size:1rem; margin-bottom:8px; display:block;">Crop Type</label>
+                        <select id="crop" class="form-control" style="height:48px; font-size:16px;">
+                            <option value="">Select a crop…</option>
+                            <option>Rice</option>
+                            <option>Wheat</option>
+                            <option>Maize</option>
+                            <option>Cotton</option>
+                            <option>Sugarcane</option>
+                        </select>
+                    </div>
 
-                <div class="card" style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
-                    <div class="card-body" style="padding:16px;">
-                        <div class="row">
-                            <div class="col-md-4 mb-3">
-                                <label for="crop" style="font-weight:600;">Crop Type</label>
-                                <select id="crop" class="form-control" style="height:40px; border-radius:10px;">
-                                    <option value="">Select a crop…</option>
-                                    <option>Rice</option>
-                                    <option>Wheat</option>
-                                    <option>Maize</option>
-                                    <option>Cotton</option>
-                                    <option>Sugarcane</option>
-                                </select>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <div class="text-muted" style="font-size:12px;">Temperature</div>
-                                        <div style="font-weight:700;">{{ weather_data['main']['temp'] | round(0, 'floor') }}°C</div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="text-muted" style="font-size:12px;">Humidity</div>
-                                        <div style="font-weight:700;">{{ weather_data['main']['humidity'] }}%</div>
-                                    </div>
-                                    <div class="col-4">
-                                        {% set rainfall = weather_data.get('rain', {}).get('1h') or weather_data.get('rain', {}).get('3h') or 0 %}
-                                        <div class="text-muted" style="font-size:12px;">Rainfall</div>
-                                        <div style="font-weight:700;">{{ rainfall }} mm</div>
-                                    </div>
-                                </div>
+                    <div id="agri-alerts" class="alert" role="alert" style="display:none; margin-top:12px;"></div>
+                    <div id="agri-recommendation" class="mt-3" style="font-weight:600; font-size:1.1rem;"></div>
+
+                    <!-- Specialized Suggestions -->
+                    <div id="agri-suggestions" class="row mt-4" style="display:none;">
+                        <div class="col-md-6 mb-3">
+                            <div class="suggestion-item">
+                                <div class="suggestion-label">Irrigation</div>
+                                <div class="suggestion-value" id="agri-irrigation"></div>
                             </div>
                         </div>
-
-                        <div id="agri-alerts" class="alert" role="alert" style="display:none; margin-top:12px;"></div>
-
-                        <div id="agri-recommendation" class="mt-2" style="font-weight:600;"></div>
-
-                        <!-- Specialized suggestions -->
-                        <div id="agri-suggestions" class="row mt-3" style="display:none;">
-                            <div class="col-md-6 mb-3">
-                                <div class="p-3" style="border:1px solid #e2e8f0; border-radius:10px;">
-                                    <div class="text-muted" style="font-size:12px;">Irrigation</div>
-                                    <div id="agri-irrigation" style="font-weight:600;"></div>
-                                </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="suggestion-item">
+                                <div class="suggestion-label">Fertilizer</div>
+                                <div class="suggestion-value" id="agri-fertilizer"></div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="p-3" style="border:1px solid #e2e8f0; border-radius:10px;">
-                                    <div class="text-muted" style="font-size:12px;">Fertilizer</div>
-                                    <div id="agri-fertilizer" style="font-weight:600;"></div>
-                                </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="suggestion-item">
+                                <div class="suggestion-label">Sowing Window</div>
+                                <div class="suggestion-value" id="agri-sowing"></div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="p-3" style="border:1px solid #e2e8f0; border-radius:10px;">
-                                    <div class="text-muted" style="font-size:12px;">Sowing Window</div>
-                                    <div id="agri-sowing" style="font-weight:600;"></div>
-                                </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="suggestion-item">
+                                <div class="suggestion-label">Post-harvest</div>
+                                <div class="suggestion-value" id="agri-postharvest"></div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="p-3" style="border:1px solid #e2e8f0; border-radius:10px;">
-                                    <div class="text-muted" style="font-size:12px;">Post-harvest</div>
-                                    <div id="agri-postharvest" style="font-weight:600;"></div>
-                                </div>
-                            </div>
-                            <div class="col-12" id="agri-pest-wrap" style="display:none;">
-                                <div class="p-3" style="border:1px solid #e2e8f0; border-radius:10px;">
-                                    <div class="text-muted" style="font-size:12px;">Pest/Disease Risks</div>
-                                    <ul id="agri-pestlist" style="margin:0; padding-left:18px;"></ul>
-                                </div>
+                        </div>
+                        <div class="col-12" id="agri-pest-wrap" style="display:none;">
+                            <div class="suggestion-item">
+                                <div class="suggestion-label">Pest/Disease Risks</div>
+                                <ul id="agri-pestlist" style="margin:8px 0 0 0; padding-left:20px; color:#1e293b; font-weight:500;"></ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        {% elif not error %}
-            <div class="empty-state">
-                <p>📍 Enter a city name above to see the latest forecast and actionable crop guidance.</p>
             </div>
         {% endif %}
 
-        <section style="margin-top:24px;">
-            <h3 style="font-weight:700; margin-bottom:12px;">How AgroCast helps farmers</h3>
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <div class="p-3" style="border:1px solid #e2e8f0; border-radius:12px; background:#ffffff; height:100%;">
-                        <div style="font-weight:600;">Smarter irrigation</div>
-                        <div class="text-muted" style="font-size:14px;">Prevent over/under-watering with rainfall-aware scheduling.</div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="p-3" style="border:1px solid #e2e8f0; border-radius:12px; background:#ffffff; height:100%;">
-                        <div style="font-weight:600;">Disease risk alerts</div>
-                        <div class="text-muted" style="font-size:14px;">Humidity and temperature driven warnings for fungal/pest risks.</div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="p-3" style="border:1px solid #e2e8f0; border-radius:12px; background:#ffffff; height:100%;">
-                        <div style="font-weight:600;">Fertilizer timing</div>
-                        <div class="text-muted" style="font-size:14px;">Avoid nutrient loss by timing applications around rain events.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="footer-text">Powered by OpenWeather</div>
+        <a href="/" class="back-btn">← Back to Home</a>
     </div>
 
     <!-- Bootstrap JS and Popper.js -->
@@ -728,26 +598,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script>
-        // Ensure spinner is hidden on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            var spinner = document.getElementById('loadingSpinner');
-            if (spinner) {
-                spinner.style.display = 'none';
-            }
-        });
-
-        function showSpinner() {
-            var spinner = document.getElementById('loadingSpinner');
-            var button = document.querySelector('button[type="submit"]');
-            if (spinner) {
-                spinner.style.display = 'inline-block';
-            }
-            // Disable button to prevent double submission
-            if (button) {
-                button.disabled = true;
-            }
-        }
-
         // Generate weather effects dynamically
         function createWeatherEffects() {
             const weatherCondition = '{{ weather_condition or "" }}';
@@ -848,7 +698,6 @@
                     var crop = cropSelect.value;
                     if (!crop) return;
 
-                    // Extract metrics from server-rendered weather_data
                     var temperature = {{ weather_data['main']['temp'] | round(0, 'floor') if weather_data else 0 }};
                     var humidity = {{ weather_data['main']['humidity'] if weather_data else 0 }};
                     var rainfall = {{ (weather_data.get('rain', {}).get('1h') or weather_data.get('rain', {}).get('3h') or 0) if weather_data else 0 }};
@@ -861,7 +710,6 @@
                             var alertEl = document.getElementById('agri-alerts');
                             if (recEl) {
                                 var rec = (data && data.recommendation) ? data.recommendation : 'No recommendation available.';
-                                // Color code
                                 var color = '#0ea5e9';
                                 var low = rec.toLowerCase();
                                 if (low.includes('ideal') || low.includes('suitable')) color = '#16a34a';
@@ -869,11 +717,19 @@
                                 recEl.style.color = color;
                                 recEl.textContent = rec;
                             }
-                            // Specialized fields
-                            var suggWrap = document.getElementById('agri-suggestions');
-                            if (suggWrap) {
-                                suggWrap.style.display = 'block';
+                            if (alertEl) {
+                                var alerts = (data && Array.isArray(data.alerts)) ? data.alerts : [];
+                                if (alerts.length > 0) {
+                                    alertEl.className = 'alert alert-warning';
+                                    alertEl.textContent = '⚠️ Alerts: ' + alerts.join(' • ');
+                                    alertEl.style.display = 'block';
+                                } else {
+                                    alertEl.style.display = 'none';
+                                }
                             }
+
+                            var suggWrap = document.getElementById('agri-suggestions');
+                            if (suggWrap) suggWrap.style.display = 'block';
                             var irEl = document.getElementById('agri-irrigation');
                             if (irEl) irEl.textContent = data.irrigation || '';
                             var fEl = document.getElementById('agri-fertilizer');
@@ -897,16 +753,6 @@
                                     pestWrap.style.display = 'block';
                                 } else {
                                     pestWrap.style.display = 'none';
-                                }
-                            }
-                            if (alertEl) {
-                                var alerts = (data && Array.isArray(data.alerts)) ? data.alerts : [];
-                                if (alerts.length > 0) {
-                                    alertEl.className = 'alert alert-warning';
-                                    alertEl.textContent = 'Alerts: ' + alerts.join(' • ');
-                                    alertEl.style.display = 'block';
-                                } else {
-                                    alertEl.style.display = 'none';
                                 }
                             }
                         })
